@@ -1,34 +1,4 @@
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Christophe-Dupin 
-Christophe-Dupin
-/
-cookiecutter-django
-forked from pydanny/cookiecutter-django
-0
-02.1k
-Code
-Pull requests
-Actions
-Projects
-Security
-Insights
-Settings
-cookiecutter-django/.gitignore
-@browniebroke
-browniebroke Clean up nested venv files from .gitignore
-…
-Latest commit 2a0f40e on 7 Sep 2020
- History
- 8 contributors
-@browniebroke@pydanny@webyneter@audreyfeldroy@hackebrot@originell@jayfk@luzfcb
-217 lines (167 sloc)  3.26 KB
   
 ### Python template
 # Byte-compiled / optimized / DLL files
@@ -131,7 +101,7 @@ ENV/
 
 ### VisualStudioCode template
 .vscode/*
-!.vscode/settings.json
+
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
