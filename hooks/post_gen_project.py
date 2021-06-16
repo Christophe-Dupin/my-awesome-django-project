@@ -24,8 +24,7 @@ def remove_drf_starter_files():
 
 
 def remove_traeffik_starter_files():
-    os.remove(os.path.join("traeffik"))
-    shutil.rmtree(os.path.join("traeffik", "users", "api"))
+    shutil.rmtree("traefik")
 
 
 def main():
