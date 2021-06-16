@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  django_{{cookiecutter.project_slug}}:
+    build: ./backend
+    container_name: django_{{cookiecutter.project_slug}}
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+    dockerfile: Dockerfile.prod
+    expose:
+      - 8000
+    env_file:
+      - ./.env.prod
+    depends_on:
+      - postgres_{{cookiecutter.project_slug}}
+
+  postgres_{{cookiecutter.project_slug}}:
+    image: postgres:{{cookiecutter.postgresql_version}}-alpine
+    container_name: postgres_{{cookiecutter.project_slug}}
+    volumes:
+      - postgres_data_{{cookiecutter.project_slug}}:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.prod.db
+
+  nginx:
+    build: ./nginx
+    ports:
+        - 1337:80
+    depends_on:
+        - django_{{cookiecutter.project_slug}}
+volumes:
+  postgres_data_{{cookiecutter.project_slug}}:
+  static_volume:
+  media_volume:    

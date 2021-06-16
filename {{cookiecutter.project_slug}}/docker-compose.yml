@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  django_{{cookiecutter.project_slug}}:
+    build: ./backend
+    container_name: django_{{cookiecutter.project_slug}}
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env
+    depends_on:
+      - postgres_{{cookiecutter.project_slug}}
+  postgres_{{cookiecutter.project_slug}}:
+    image: postgres:{{cookiecutter.postgresql_version}}-alpine
+    container_name: postgres_{{cookiecutter.project_slug}}
+    volumes:
+      - postgres_data_{{cookiecutter.project_slug}}:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+
+volumes:
+  postgres_data_{{cookiecutter.project_slug}}:

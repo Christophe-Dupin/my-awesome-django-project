@@ -1,0 +1,22 @@
+-r base.txt
+
+
+{%- if cookiecutter.use_docker == 'y' %}
+psycopg2==2.8.6  # https://github.com/psycopg/psycopg2
+{%- else %}
+psycopg2-binary==2.8.6  # https://github.com/psycopg/psycopg2
+{%- endif %}
+
+
+# Testing
+# ------------------------------------------------------------------------------
+
+pytest==6.2.4  # https://github.com/pytest-dev/pytest
+pytest-django==4.3.0  # https://github.com/pytest-dev/pytest-django
+
+# Code quality
+# ------------------------------------------------------------------------------
+flake8==3.9.2  # https://github.com/PyCQA/flake8
+flake8-isort==4.0.0  # https://github.com/gforcada/flake8-isort
+coverage==5.5  # https://github.com/nedbat/coveragepy
+black==21.5b1  # https://github.com/ambv/black

@@ -1,0 +1,32 @@
+{
+  "project_name": "My Awesome Project",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+  "description": "Behold My Awesome Project!",
+  "author_name": "Christophe Dupin",
+  "domain_name": "christophe-dupin.com",
+  "email": "{{ cookiecutter.author_name.lower()|replace(' ', '-') }}@example.com",
+  "version": "0.1.0",
+  "open_source_license": [
+    "MIT",
+    "BSD",
+    "GPLv3",
+    "Apache Software License 2.0",
+    "Not open source"
+  ],
+  "use_docker": "n",
+  "use_traefik": "n",
+  "postgresql_version": [
+    "12.3",
+    "11.8",
+    "10.8",
+    "9.6",
+    "9.5"
+  ],
+  "timezone": "UTC",
+  "use_drf": "n",
+  "ci_tool": [
+    "None",
+    "Github"
+  ],
+  "debug": "n"
+}
